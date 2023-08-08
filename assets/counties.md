@@ -123,3 +123,76 @@ if state:
     session.commit()
 else:
     print("State not found!")
+
+
+
+
+
+
+    # A structured dictionary of states and a sample of their counties
+state_county_data = {
+    "Illinois": [
+        {"name": "Cook County", "population": 5150233, "area": 1635},
+        {"name": "Dupage County", "population": 922921, "area": 336},
+    ],
+    "Texas": [
+        {"name": "Harris County", "population": 4713325, "area": 1775},
+        {"name": "Dallas County", "population": 2635516, "area": 907},
+    ],
+    "District of Columbia": [
+        {"name": "District of Columbia", "population": 705749, "area": 68.34}
+    ],
+    "New Jersey": [
+        {"name": "Bergen County", "population": 950000, "area": 246},
+        {"name": "Middlesex County", "population": 825000, "area": 311},
+    ],
+    "Connecticut": [
+        {"name": "Fairfield County", "population": 950000, "area": 837},
+        {"name": "Hartford County", "population": 895000, "area": 751},
+    ],
+    "Missouri": [
+        {"name": "St. Louis County", "population": 1000000, "area": 508},
+        {"name": "Jackson County", "population": 700000, "area": 616},
+    ],
+    "Ohio": [
+        {"name": "Franklin County", "population": 1310000, "area": 544},
+        {"name": "Cuyahoga County", "population": 1200000, "area": 457},
+    ],
+    "Nebraska": [
+        {"name": "Douglas County", "population": 575000, "area": 339},
+        {"name": "Lancaster County", "population": 320000, "area": 860},
+    ],
+    "New York": [
+        {"name": "New York County", "population": 1600000, "area": 33},
+        {"name": "Kings County", "population": 2600000, "area": 97},
+    ],
+    "Hawaii": [
+        {"name": "Honolulu County", "population": 980000, "area": 597},
+        {"name": "Hawaii County", "population": 200000, "area": 4036},
+    ],
+    "Minnesota": [
+        {"name": "Hennepin County", "population": 1250000, "area": 606},
+        {"name": "Ramsey County", "population": 550000, "area": 170},
+    ],
+    "Massachusetts": [
+        {"name": "Middlesex County", "population": 1600000, "area": 848},
+        {"name": "Suffolk County", "population": 800000, "area": 120},
+    ],
+    "Pennsylvania": [
+        {"name": "Philadelphia County", "population": 1580000, "area": 143},
+        {"name": "Allegheny County", "population": 1200000, "area": 744},
+    ]
+  
+}
+
+counties_to_add = []
+for state_name, county_list in state_county_data.items():
+    state_obj = session.query(State).filter_by(name=state_name).first()
+    if state_obj:
+        for county_name in county_list:
+            county = County(name=county_name, state_id=state_obj.id)
+            counties_to_add.append(county)
+
+# Now, you can add and commit these counties to the database
+session.add_all(counties_to_add)
+session.commit()

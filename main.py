@@ -3,6 +3,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey, Index
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from sqlalchemy.schema import UniqueConstraint
+from sqlalchemy.exc import SQLAlchemyError
 
 Base = declarative_base()
 
@@ -82,14 +83,19 @@ class City(Base):
 
 
 if __name__ == "__main__":
-    # Create an SQLite database and the tables
     engine = create_engine("sqlite:///geodata.db")
+
+    # Drop the tables
+    Base.metadata.drop_all(engine)
+
+    # Recreate the tables
     Base.metadata.create_all(engine)
-    # Base.metadata.drop_all(engine)
 
     Session = sessionmaker(bind=engine)
     session = Session()
-
+    
+    
+    
     # Add all provided states using instances of the State class
     states_to_add = [
         State(
@@ -243,6 +249,38 @@ if __name__ == "__main__":
 
     session.add_all(states_to_add)
     session.commit()
+    
+    
+state = session.query(State).filter_by(name="Florida").first()
+
+if state:
+    try:
+        # Create a new county and associate it with the state
+        new_county = County(name="Orange", population=580000, area=1920, state=state)
+
+        # Add the new county to the session
+        session.add(new_county)
+
+        # Commit the session to persist the change to the database
+        session.commit()
+    except SQLAlchemyError as e:
+        session.rollback()
+        print(f"Error adding county: {e}")
+else:
+    print("State not found!")
+
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
 
 
 # 3. ✅ Query all states.
