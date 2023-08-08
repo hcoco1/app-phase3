@@ -111,17 +111,16 @@ insert into Cities (city_name, population, area, latitude, longitude, state) val
 2. Adding Only One City:
 To add a city, you typically need to associate it with a state. You'd first retrieve or create the related state, then create the city instance and associate it with the state:
 
-# Assuming you're associating the city with an existing state
-state = session.query(State).filter_by(name="ExistingStateName").first()
+# Retrieve the county you want to associate with the city
+county = session.query(County).filter_by(name="ExistingCountyName").first()
 
-if state:
-    # Create a new city and associate it with the state
-    new_city = City(name="CityName", population=100000, area=250, latitude=12.345, longitude=67.890, state=state)
+if county:
+    # Create a new city and associate it with the county
+    new_city = City(name="CityName", population=100000, area=250, latitude=12.345, longitude=67.890, state=county.state, county=county)
 
-    # Add the new city to the session
+    # Add the new city to the session and commit
     session.add(new_city)
-
-    # Commit the session to persist the change to the database
     session.commit()
 else:
-    print("State not found!")
+    print("County not found!")
+

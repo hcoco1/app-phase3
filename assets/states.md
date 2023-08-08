@@ -16,7 +16,6 @@ insert into states (StateName, Abbreviation, Population, Capital, Area) values (
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('Arizona', 'AZ', 1481513, 'Gilbert', 219024);
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('California', 'CA', 1642739, 'San Jose', 193225);
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('District of Columbia', 'DC', 3706174, 'Washington', 1912);
-
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('Tennessee', 'TN', 2967424, 'Nashville', 199990);
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('Florida', 'FL', 4615458, 'Lehigh Acres', 78523);
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('District of Columbia', 'DC', 4920035, 'Washington', 248355);
@@ -30,7 +29,6 @@ insert into states (StateName, Abbreviation, Population, Capital, Area) values (
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('Tennessee', 'TN', 2891787, 'Memphis', 294847);
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('Ohio', 'OH', 4509421, 'Cincinnati', 83227);
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('Nebraska', 'NE', 2422350, 'Omaha', 96799);
-
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('Alabama', 'AL', 3185584, 'Birmingham', 272678);
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('California', 'CA', 2576565, 'Sacramento', 115602);
 insert into states (StateName, Abbreviation, Population, Capital, Area) values ('New York', 'NY', 2399022, 'Brooklyn', 23004);
@@ -67,3 +65,48 @@ session.add(new_state)
 
 # Commit the session to persist the change to the database
 session.commit()
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+	  # Add all provided states using instances of the State class
+    states_to_add = [
+		        State(name='Illinois', abbreviation='IL', population=572416, capital='Chicago', area=74810),
+        State(name='Texas', abbreviation='TX', population=3856813, capital='Houston', area=261061),
+        State(name='Alabama', abbreviation='AL', population=1400268, capital='Birmingham', area=62206),
+        State(name='Indiana', abbreviation='IN', population=650597, capital='Crawfordsville', area=254996),
+        State(name='Missouri', abbreviation='MO', population=3858148, capital='Kansas City', area=217318),
+        State(name='Oklahoma', abbreviation='OK', population=1743791, capital='Tulsa', area=204646),
+        State(name='Delaware', abbreviation='DE', population=2432814, capital='Newark', area=272971),
+        State(name='Arizona', abbreviation='AZ', population=1481513, capital='Gilbert', area=219024),
+        State(name='California', abbreviation='CA', population=1642739, capital='San Jose', area=193225),
+        State(name='District of Columbia', abbreviation='DC', population=3706174, capital='Washington', area=1912),
+        State(name='Tennessee', abbreviation='TN', population=2967424, capital='Nashville', area=199990),
+        State(name='Florida', abbreviation='FL', population=4615458, capital='Lehigh Acres', area=78523),
+        State(name='District of Columbia', abbreviation='DC', population=4920035, capital='Washington', area=248355),
+        State(name='New Jersey', abbreviation='NJ', population=1421164, capital='Trenton', area=156607),
+        State(name='Connecticut', abbreviation='CT', population=3461452, capital='Hartford', area=191523),
+        State(name='Missouri', abbreviation='MO', population=3427132, capital='Independence', area=255529),
+        State(name='Ohio', abbreviation='OH', population=4509421, capital='Cincinnati', area=83227),
+        State(name='Nebraska', abbreviation='NE', population=2422350, capital='Omaha', area=96799),
+        State(name='New York', abbreviation='NY', population=2399022, capital='Brooklyn', area=23004),
+        State(name='Hawaii', abbreviation='HI', population=2741680, capital='Honolulu', area=108045),
+        State(name='Minnesota', abbreviation='MN', population=2966503, capital='Minneapolis', area=60602),
+        State(name='Massachusetts', abbreviation='MA', population=4936117, capital='Newton', area=60788),
+        State(name='Pennsylvania', abbreviation='PA', population=506268, capital='Harrisburg', area=26013)
+     
+    ]
+
+    session.add_all(states_to_add)
+    session.commit()
