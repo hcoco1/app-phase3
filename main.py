@@ -271,7 +271,33 @@ else:
 
     
     
-    
+    # Find the existing state and county by their names
+state = session.query(State).filter_by(name="Florida").first()
+county = session.query(County).filter_by(name="Orange").first()
+
+if state and county:
+    try:
+        # Create a new city and associate it with the found state and county
+        new_city = City(
+            name="Orlando", 
+            population=300000, 
+            area=150, 
+            latitude=40.7128, 
+            longitude=-74.0060, 
+            state=state, 
+            county=county
+        )
+
+        # Add the new city to the session
+        session.add(new_city)
+
+        # Commit the session to persist the change to the database
+        session.commit()
+    except SQLAlchemyError as e:
+        session.rollback()
+        print(f"Error adding city: {e}")
+else:
+    print("State or County not found!")
     
     
     
