@@ -1,3 +1,5 @@
+import database_operations
+import display
 from database_operations import session
 from models import State, City, County
 import datetime
@@ -25,70 +27,80 @@ def save_user_details():
 
     
 
-def get_user_query(session, user_name):
+def get_user_query():
+    while True:
+        print("\nChoose an operation:")
+        print("1. Show the DataBase")
+        print("2. Add a new State")
+        print("3. Add a new City")
+        print("4. Add a new County")
+        print("5. Update a State")
+        print("6. Update a City")
+        print("7. Update a County")
+        print("8. Delete a State")
+        print("9. Delete a County")
+        print("10. Delete a City")
+        print("11. Exit")
 
-    def check_exit(user_input):
-        """Check if the user wants to exit and terminate if so."""
-        if user_input.lower() in ['exit', 'quit']:
-            print("Exiting the program. Goodbye!")
-            exit()  # Use exit() to terminate the entire program, or you can use 'return' to exit the function.
+        choice = input("Enter your choice: ")
 
-    # Ask user for the type of information: state, city, county
-    entity_type = input(f" Hey {user_name} would you like to take a look of my dataBase? Type: Yes or type 'exit' to quit: ").strip().lower()
-    check_exit(entity_type)
+        if choice == "1":
+            display.display_states(session)
+            display.display_counties(session)
+            display.display_cities(session)
 
+        elif choice == "2":
+            state_name = input("Enter state name: ").strip().lower()
+            database_operations.add_single_state(session, state_name.title())
 
-    # Ask user for the type of operation: create, read, update, delete
-    operation = input("Which operation do you want to perform? (create, read, update, delete) or type 'exit' to quit: ").strip().lower()
-    check_exit(operation)
+        elif choice == "3":
+            state_name = input("Enter the name of the state where the city is located: ").strip().lower()
+            county_name = input("Enter the name of the county where the city is located: ").strip().lower()
+            name = input("Enter city name: ").strip().lower()
+            database_operations.add_single_city(session, name.title(), state_name.title(), county_name.title() )
 
-    if operation == "create":
-        # Handle create operation
-        # For simplicity, we'll only handle state creation here. You can expand for city and county.
-        if entity_type == "state":
-            state_name = input("Enter the name of the state to create: ").strip()
-            check_exit(state_name)
-            # Add other fields like population, area, etc.
-            # Create the state in the database
-            # session.add(State(name=state_name, ...))
-            # session.commit()
+        elif choice == "4":
+            state_name = input("Enter the name of the state where the county is located: ").strip().lower()
+            name = input("Enter county name: ").strip().lower()
+            database_operations.add_single_county(session,name.title(), state_name.title() )
+            
+        elif choice == "5":
+            state_name = input("Enter the name of the state to modify: ").strip().lower()
+            attribute = input("Enter the attribute to modify: ").strip().lower()
+            new_value = input("Enter the new value: ").strip().lower()
+            database_operations.update_state_attribute(state_name.title(), attribute, new_value)
+            
+        elif choice == "6":
+            city_name = input("Enter the name of the city to modify: ").strip().lower()
+            attribute = input("Enter the attribute to modify: ").strip().lower()
+            new_value = input("Enter the new value: ").strip().lower()
+            database_operations.update_city_attribute(city_name.title(), attribute, new_value)
 
-    elif operation == "read":
-        # Handle read operation
-        if entity_type == "state":
-            state_name = input("Enter the name of the state to read: ").strip()
-            check_exit(state_name)
-            state = session.query(State).filter_by(name=state_name).first()
-            if state:
-                print(f"Details for state {state.name}: Population = {state.population}, Area = {state.area}")
-            else:
-                print(f"No data found for state: {state_name}")
+        elif choice == "7":
+            county_name = input("Enter the name of the county to modify: ").strip().lower()
+            attribute = input("Enter the attribute to modify: ").strip().lower()
+            new_value = input("Enter the new value: ").strip().lower()
+            database_operations.update_county_attribute(county_name.title(), attribute, new_value)
+            
+        elif choice == "8":
+            state_name = input("Enter state name to delete: ").strip().lower()
+            database_operations.delete_state_by_name(session, state_name.title())
+            
+        elif choice == "9":
+            county_name = input("Enter county name to delete: ").strip().lower()
+            database_operations.delete_county_by_name(session, county_name.title())
+            
+        elif choice == "10":
+            city_name = input("Enter city name to delete: ").strip().lower()
+            database_operations.delete_city_by_name(session, city_name.title())
 
-    elif operation == "update":
-        # Handle update operation
-        # For simplicity, we'll only handle state update here. You can expand for city and county.
-        if entity_type == "state":
-            state_name = input("Enter the name of the state to update: ").strip()
-            check_exit(state_name)
-            # Query the state and update the desired fields
-            # state = session.query(State).filter_by(name=state_name).first()
-            # if state:
-            #     state.population = updated_population
-            #     session.commit()
+        elif choice == "11":
+            print("Goodbye!")
+            break
 
-    elif operation == "delete":
-        # Handle delete operation
-        # For simplicity, we'll only handle state deletion here. You can expand for city and county.
-        if entity_type == "state":
-            state_name = input("Enter the name of the state to delete: ").strip()
-            check_exit(state_name)
-            # Query the state and delete it
-            # state = session.query(State).filter_by(name=state_name).first()
-            # if state:
-            #     session.delete(state)
-            #     session.commit()
+        else:
+            print("Invalid choice. Please try again.")
 
-    print("Operation completed.")
 
 
 

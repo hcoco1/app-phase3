@@ -29,6 +29,7 @@ from display import display_states, display_counties, display_cities
 
 
 if __name__ == "__main__":
+    
     # Database setup
     engine = create_engine("sqlite:///geodata.db")
     # Base.metadata.drop_all(engine)
@@ -37,6 +38,7 @@ if __name__ == "__main__":
     session = Session()
 
     try:
+        get_user_query()
         # Add data to the database
         # add_states(session)
         # add_single_state(session, "Alabama", population=4903185, area=52420.0)
