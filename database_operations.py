@@ -4,6 +4,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from termcolor import colored
 from models import State, County, City
 import random
+from sqlalchemy.orm.exc import NoResultFound
 
 
 
@@ -278,7 +279,7 @@ def add_cities(session):
             session.rollback()
             print(colored(f"Error adding city {city_data['name']}: {e}", "red"))
 
-
+# UPDATE
 
 def update_state_attribute(state_name, attribute, new_value):
     state_to_update = session.query(State).filter_by(name=state_name).first()
@@ -306,7 +307,52 @@ def update_city_attribute(city_name, attribute, new_value):
             setattr(city, attribute, new_value)
         session.commit()
     else:
-        print(f"City {city_name} not found!")
+        print(colored(f"City {city_name} not found!", "red"))
+        
+        
+# DELETE
+
+def delete_state_by_name(session, state_name):
+    try:
+        state = session.query(State).filter_by(name=state_name).first()
+        if state:
+            session.delete(state)
+            session.commit()
+            print(f"State {state_name} deleted successfully!")
+        else:
+            print(f"State {state_name} not found!")
+    except SQLAlchemyError as e:
+        session.rollback()
+        print(colored(f"Error deleting state {state_name}: {e}", "red"))
+
+def delete_county_by_name(session, county_name):
+    try:
+        county = session.query(County).filter_by(name=county_name).first()
+        if county:
+            session.delete(county)
+            session.commit()
+            print(f"County {county_name} deleted successfully!")
+        else:
+            print(f"County {county_name} not found!")
+    except SQLAlchemyError as e:
+        session.rollback()
+        print(colored(f"Error deleting county {county_name}: {e}", "red"))
+
+def delete_city_by_name(session, city_name):
+    try:
+        # If there are multiple cities with the same name in different counties, this will delete all of them.
+        cities = session.query(City).filter_by(name=city_name).all()
+        if cities:
+            for city in cities:
+                session.delete(city)
+            session.commit()
+            print(f"City/Cities named {city_name} deleted successfully!")
+        else:
+            print(f"City {city_name} not found!")
+    except SQLAlchemyError as e:
+        session.rollback()
+        print(colored(f"Error deleting city {city_name}: {e}", "red"))
+
 
 
 

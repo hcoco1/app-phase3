@@ -21,10 +21,11 @@ class State(Base):
         UniqueConstraint("abbreviation", name="_state_abbreviation_uc"),
         Index("idx_abbreviation", "abbreviation"),  # New index on abbreviation column
     )
-
     # ORM relationships
-    counties = relationship("County", back_populates="state")
-    cities = relationship("City", backref="state")
+    # In State class
+    counties = relationship("County", back_populates="state", cascade="all, delete, delete-orphan")
+    cities = relationship("City", backref="state", cascade="all, delete, delete-orphan")
+
 
     def __repr__(self):
         return colored(
@@ -51,7 +52,9 @@ class County(Base):
     )
 
     # ORM relationships
-    cities = relationship("City", back_populates="county")
+    # In County class
+    cities = relationship("City", back_populates="county", cascade="all, delete, delete-orphan")
+
 
     def __repr__(self):
         return colored(
