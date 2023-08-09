@@ -15,43 +15,44 @@ from database_operations import (
     delete_state_by_name,
     delete_county_by_name,
     delete_city_by_name,
-    update_city_coordinates
-    )
+    update_city_coordinates,
+    session,
+    add_single_state,
+    add_single_county,
+    add_single_city
     
-from  user_interaction import (   save_user_details,
-    get_user_query)
     
-
+)
+from user_interaction import save_user_details, get_user_query
 from display import display_states, display_counties, display_cities
-from user_interaction import get_user_query
+
 
 
 if __name__ == "__main__":
-    save_user_details()
-    get_user_query()
     # Database setup
     engine = create_engine("sqlite:///geodata.db")
-    Base.metadata.drop_all(engine)
+    # Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    
-  
+
     try:
         # Add data to the database
-        add_states(session)
-        add_counties(session, "Florida")
-        add_counties(session, "New York")
-        add_cities(session)
-        
+        # add_states(session)
+        # add_single_state(session, "Alabama", population=4903185, area=52420.0)
+        # add_counties(session, "Florida")
+        # add_counties(session, "New York")
+        # add_single_county(session, "Georgia County", "Georgia", population=10, area=110)
+        # add_cities(session)
+        # add_single_city(session, "Atlanta", "Georgia", "Georgia County", population=210, area=2220, latitude=0, longitude=0)
+
         # update_city_coordinates()
-        
 
         # update_state_attribute("Florida", "population", 9000000)
         # update_county_attribute("Orange", "population", 1650000)
         # update_city_attribute("Orlando", "population", 1350000)
 
-        # delete_state_by_name(session, "Florida")
+        # delete_state_by_name(session, "Alabama")
         # delete_county_by_name(session, "Orange")
         # delete_city_by_name(session, "Orlando")
 
