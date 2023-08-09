@@ -219,8 +219,7 @@ def add_counties(session):
                                     population=random_population(), 
                                     area=random_area(),
                                     state_name=county_data["state_name"], 
-                                    state=state,
-                                    city_name=county_data["city_name"])
+                                    state=state)
 
                 # Add the new county to the session
                 session.add(new_county)

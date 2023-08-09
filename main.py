@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
         # delete_state_by_name(session, "Florida")
         # delete_county_by_name(session, "Orange")
-        # delete_city_by_name(session, "Orlando")
+        delete_city_by_name(session, "Orlando")
 
         # Display data using prettytable
         display_states(session)

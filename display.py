@@ -49,11 +49,11 @@ def display_counties(session):
     table = ColorTable(theme=custom_font_color_theme)
     table.align = "l"
     # Set the headers for your table columns
-    table.field_names = ["ID", "Name", "Population", "Area", "State", "State_ID", "City"]
+    table.field_names = ["ID", "Name", "Population", "Area", "State", "State_ID"]
     # Add rows to the table
     for county in add_counties:
         table.add_row(
-            [county.id, county.name, county.population, county.area, county.state_name, county.state_id, county.city_name]
+            [county.id, county.name, county.population, county.area, county.state_name, county.state_id]
         )
     # Print the title
     print("-" * len("COUNTIES Table"))
