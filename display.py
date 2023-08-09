@@ -1,9 +1,6 @@
 from prettytable.colortable import ColorTable, Themes, Theme
 from models import State, County, City
 
-
-
-
 # ALL STATES
 def display_states(session):
     

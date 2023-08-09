@@ -15,20 +15,28 @@ from database_operations import (
     delete_state_by_name,
     delete_county_by_name,
     delete_city_by_name,
-    update_city_coordinates,
+    update_city_coordinates
+    )
     
-)
+from  user_interaction import (   save_user_details,
+    get_user_query)
+    
+
 from display import display_states, display_counties, display_cities
+from user_interaction import get_user_query
 
 
 if __name__ == "__main__":
+    save_user_details()
+    get_user_query()
     # Database setup
     engine = create_engine("sqlite:///geodata.db")
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-
+    
+  
     try:
         # Add data to the database
         add_states(session)
@@ -36,7 +44,7 @@ if __name__ == "__main__":
         add_counties(session, "New York")
         add_cities(session)
         
-        update_city_coordinates()
+        # update_city_coordinates()
         
 
         # update_state_attribute("Florida", "population", 9000000)
