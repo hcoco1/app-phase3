@@ -5,7 +5,8 @@ from termcolor import colored
 from models import State, County, City
 import random
 from sqlalchemy.orm.exc import NoResultFound
-
+from geopy.geocoders import Nominatim
+import time
 
 
 Base = declarative_base()
@@ -21,219 +22,277 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
-def random_population():
-    # Generate a random population between 10,000 and 1,000,000
-    return random.randint(10_000, 1_000_000)
-
-def random_area():
-    # Generate a random area between 100 and 10,000
-    return random.randint(100, 10_000)
-
-def random_latitude():
-    return random.uniform(24.396308, 49.384358)
-
-def random_longitude():
-    return random.uniform(-125.000000, -66.934570)
-
-
-
-
 
 # Add all provided states using instances of the State class
 def add_states(session):
     add_states = [
         State(
-            name="Illinois",
-            abbreviation="IL",
-            population=random_population(),
-            capital="Chicago",
-            area=random_area(),
-        ),
-        State(
-            name="Texas",
-            abbreviation="TX",
-            population=random_population(),
-            capital="Houston",
-            area=random_area(),
-        ),
-        State(
             name="Alabama",
             abbreviation="AL",
-            population=random_population(),
-            capital="Birmingham",
-            area=random_area(),
+            population=4903185,
+            capital="Montgomery",
+            area=52420,
         ),
         State(
-            name="Indiana",
-            abbreviation="IN",
-            population=random_population(),
-            capital="Crawfordsville",
-            area=random_area(),
-        ),
-        State(
-            name="Oklahoma",
-            abbreviation="OK",
-            population=random_population(),
-            capital="Tulsa",
-            area=random_area(),
-        ),
-        State(
-            name="Delaware",
-            abbreviation="DE",
-            population=random_population(),
-            capital="Newark",
-            area=random_area(),
+            name="Alaska",
+            abbreviation="AK",
+            population=731545,
+            capital="Juneau",
+            area=665384,
         ),
         State(
             name="Arizona",
             abbreviation="AZ",
-            population=random_population(),
-            capital="Gilbert",
-            area=random_area(),
+            population=7278717,
+            capital="Phoenix",
+            area=113990,
+        ),
+        State(
+            name="Arkansas",
+            abbreviation="AR",
+            population=3017804,
+            capital="Little Rock",
+            area=53179,
         ),
         State(
             name="California",
             abbreviation="CA",
-            population=random_population(),
-            capital="San Jose",
-            area=random_area(),
+            population=39538223,
+            capital="Sacramento",
+            area=163695,
         ),
         State(
-            name="Tennessee",
-            abbreviation="TN",
-            population=random_population(),
-            capital="Nashville",
-            area=random_area(),
-        ),
-        State(
-            name="Florida",
-            abbreviation="FL",
-            population=222222222,
-            capital="Lehigh Acres",
-            area=random_area(),
-        ),
-        State(
-            name="District of Columbia",
-            abbreviation="DC",
-            population=random_population(),
-            capital="Washington",
-            area=random_area(),
-        ),
-        State(
-            name="New Jersey",
-            abbreviation="NJ",
-            population=random_population(),
-            capital="Trenton",
-            area=random_area(),
+            name="Colorado",
+            abbreviation="CO",
+            population=5773714,
+            capital="Denver",
+            area=104094,
         ),
         State(
             name="Connecticut",
             abbreviation="CT",
-            population=random_population(),
+            population=3565287,
             capital="Hartford",
-            area=random_area(),
+            area=5543,
         ),
         State(
-            name="Missouri",
-            abbreviation="MO",
-            population=random_population(),
-            capital="Independence",
-            area=random_area(),
+            name="Delaware",
+            abbreviation="DE",
+            population=989948,
+            capital="Dover",
+            area=2489,
         ),
         State(
-            name="Ohio",
-            abbreviation="OH",
-            population=random_population(),
-            capital="Cincinnati",
-            area=random_area(),
+            name="Florida",
+            abbreviation="FL",
+            population=21538187,
+            capital="Tallahassee",
+            area=65758,
         ),
         State(
-            name="Nebraska",
-            abbreviation="NE",
-            population=random_population(),
-            capital="Omaha",
-            area=random_area(),
+            name="Georgia",
+            abbreviation="GA",
+            population=10617423,
+            capital="Atlanta",
+            area=59425,
         ),
         State(
             name="New York",
             abbreviation="NY",
-            population=random_population(),
-            capital="Brooklyn",
-            area=random_area(),
+            population=10617423,
+            capital="New York",
+            area=59425,
         ),
-        State(
-            name="Hawaii",
-            abbreviation="HI",
-            population=random_population(),
-            capital="Honolulu",
-            area=random_area(),
-        ),
-        State(
-            name="Minnesota",
-            abbreviation="MN",
-            population=random_population(),
-            capital="Minneapolis",
-            area=random_area(),
-        ),
-        State(
-            name="Massachusetts",
-            abbreviation="MA",
-            population=random_population(),
-            capital="Newton",
-            area=random_area(),
-        ),
-        State(
-            name="Pennsylvania",
-            abbreviation="PA",
-            population=random_population(),
-            capital="Harrisburg",
-            area=random_area(),
-        ),
-        ]
+    ]
 
     session.add_all(add_states)
     session.commit()
 
-
-
-
-
-def add_counties(session):
-    state = session.query(State).filter_by(name="Florida").first()
+counties_to_add = [
+    {
+        "name": "Orange",
+        "population": 1393452,  # As of 2019
+        "area": 903,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Orlando",
+    },
+    {
+        "name": "Seminole",
+        "population": 471826,  # As of 2019
+        "area": 309,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Orlando",
+    },
+    {
+        "name": "Lake County",
+        "population": 367118,  # As of 2019
+        "area": 953,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Orlando",
+    },
+    {
+        "name": "Osceola",
+        "population": 375751,  # As of 2019
+        "area": 1325,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Orlando",
+    },
+    {
+        "name": "Miami Dade",
+        "population": 2716940,  # As of 2019
+        "area": 1898,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Miami",
+    },
+    {
+        "name": "Broward",
+        "population": 1952778,  # As of 2019
+        "area": 1209,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Fort Lauderdale",
+    },
+    {
+        "name": "Palm Beach",
+        "population": 1496770,  # As of 2019
+        "area": 1969,  # Square miles
+        "state_name": "Florida",
+        "city_name": "West Palm Beach",
+    },
+    {
+        "name": "Hillsborough",
+        "population": 1471968,  # As of 2019
+        "area": 1020,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Tampa",
+    },
+    {
+        "name": "Pinellas",
+        "population": 974996,  # As of 2019
+        "area": 274,  # Square miles
+        "state_name": "Florida",
+        "city_name": "St. Petersburg",
+    },
+    {
+        "name": "Duval",
+        "population": 957755,  # As of 2019
+        "area": 762,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Jacksonville",
+    },
+    {
+        "name": "Lee",
+        "population": 770577,  # As of 2019
+        "area": 785,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Fort Myers",
+    },
+    {
+        "name": "Polk",
+        "population": 724777,  # As of 2019
+        "area": 1798,  # Square miles
+        "state_name": "Florida",
+        "city_name": "Lakeland",
+    },
+    {
+        "name": "Kings (Brooklyn)",
+        "population": 2559903,  # As of 2019
+        "area": 69,  # Square miles
+        "state_name": "New York",
+        "city_name": "Brooklyn",
+    },
+    {
+        "name": "Queens",
+        "population": 2253858,  # As of 2019
+        "area": 108,  # Square miles
+        "state_name": "New York",
+        "city_name": "Queens",
+    },
+    {
+        "name": "New York (Manhattan)",
+        "population": 1628706,  # As of 2019
+        "area": 22.7,  # Square miles
+        "state_name": "New York",
+        "city_name": "Manhattan",
+    },
+    {
+        "name": "Suffolk",
+        "population": 1476601,  # As of 2019
+        "area": 912,  # Square miles
+        "state_name": "New York",
+        "city_name": "Riverhead",
+    },
+    {
+        "name": "Bronx",
+        "population": 1472654,  # As of 2019
+        "area": 42,  # Square miles
+        "state_name": "New York",
+        "city_name": "The Bronx",
+    },
+    {
+        "name": "Nassau",
+        "population": 1356924,  # As of 2019
+        "area": 285,  # Square miles
+        "state_name": "New York",
+        "city_name": "Mineola",
+    },
+    {
+        "name": "Westchester",
+        "population": 967506,  # As of 2019
+        "area": 432,  # Square miles
+        "state_name": "New York",
+        "city_name": "White Plains",
+    },
+    {
+        "name": "Erie",
+        "population": 918702,  # As of 2019
+        "area": 1044,  # Square miles
+        "state_name": "New York",
+        "city_name": "Buffalo",
+    },
+    {
+        "name": "Monroe",
+        "population": 741770,  # As of 2019
+        "area": 657,  # Square miles
+        "state_name": "New York",
+        "city_name": "Rochester",
+    },
+    {
+        "name": "Richmond (Staten Island)",
+        "population": 476143,  # As of 2019
+        "area": 57,  # Square miles
+        "state_name": "New York",
+        "city_name": "Staten Island",
+    },
+]
+def add_counties(session, state_name):
+    state = session.query(State).filter_by(name=state_name).first()
 
     if state:
-        # List of counties to add
-        counties_to_add = [
-            {"name": "Orange", "population": 580000, "area": 1920, "state_name":"Florida", "city_name":"Orlando"},
-            {"name": "Seminole", "population": 2799000, "area": 5630, "state_name":"Florida", "city_name":"Orlando"},
-            {"name": "Lake County", "population": 45716000, "area": 3310, "state_name":"Florida", "city_name":"Orlando"},
-            {"name": "Osceola", "population": 716000, "area": 2230, "state_name":"Florida", "city_name":"Orlando"},
-            {"name": "Miami Dade", "population": 716000, "area": 2230, "state_name":"Florida", "city_name":"Miami"}
-            # Add more counties as needed
-        ]
+           for county_data in counties_to_add:
+            if county_data["state_name"] == state_name:  # Only add counties for the specified state
+                try:
+                    # Create a new county and associate it with the state
+                    new_county = County(
+                        name=county_data["name"],
+                        population=county_data["population"],
+                        area=county_data["area"],
+                        state_name=county_data["state_name"],
+                        state=state,
+                    )
 
-        for county_data in counties_to_add:
-            try:
-                # Create a new county and associate it with the state
-                new_county = County(name=county_data["name"], 
-                                    population=random_population(), 
-                                    area=random_area(),
-                                    state_name=county_data["state_name"], 
-                                    state=state)
-
-                # Add the new county to the session
-                session.add(new_county)
-                # Commit the session to persist the change to the database
-                session.commit()
-            except SQLAlchemyError as e:
-                session.rollback()
-                print(colored(f"Error adding county {county_data['name']}: {e}", "red"))
+                    # Add the new county to the session
+                    session.add(new_county)
+                    # Commit the session to persist the change to the database
+                    session.commit()
+                except SQLAlchemyError as e:
+                    session.rollback()
+                    print(f"Error adding county {county_data['name']}: {e}")
     else:
-        print(colored("State not found!", "red"))
-        
-        
+        print(f"State {state_name} not found!")
 
     # Find the existing state and county by their names
+
+
 def add_cities(session):
     state = session.query(State).filter_by(name="Florida").first()
     if not state:
@@ -242,13 +301,51 @@ def add_cities(session):
 
     # List of cities to add
     cities_to_add = [
-        {"name": "Orlando", "population": 300000, "area": 150, "latitude": 40.7128, "longitude": -74.0060, "state_name":"Florida", "county_name": "Orange"},
-        {"name": "Orlando", "population": 300000, "area": 150, "latitude": 40.7128, "longitude": -74.0060, "state_name":"Florida", "county_name": "Seminole"},
-        {"name": "Orlando", "population": 300000, "area": 150, "latitude": 40.7128, "longitude": -74.0060, "state_name":"Florida", "county_name": "Lake County"},
-        {"name": "Orlando", "population": 300000, "area": 150, "latitude": 40.7128, "longitude": -74.0060, "state_name":"Florida", "county_name": "Osceola"},
-        {"name": "Miami", "population": 300000, "area": 150, "latitude": 40.7128, "longitude": -74.0060, "state_name":"Florida", "county_name": "Miami Dade"},
-        
-        
+        {
+            "name": "Orlando",
+            "population": 300000,
+            "area": 150,
+            "latitude": 0,
+            "longitude": 0,
+            "state_name": "Florida",
+            "county_name": "Orange",
+        },
+        {
+            "name": "Orlando",
+            "population": 300000,
+            "area": 150,
+            "latitude": 0,
+            "longitude": 0,
+            "state_name": "Florida",
+            "county_name": "Seminole",
+        },
+        {
+            "name": "Orlando",
+            "population": 300000,
+            "area": 150,
+            "latitude": 0,
+            "longitude": 0,
+            "state_name": "Florida",
+            "county_name": "Lake County",
+        },
+        {
+            "name": "Orlando",
+            "population": 300000,
+            "area": 150,
+            "latitude": 0,
+            "longitude": 0,
+            "state_name": "Florida",
+            "county_name": "Osceola",
+        },
+        {
+            "name": "Miami",
+            "population": 300000,
+            "area": 150,
+            "latitude": 0,
+            "longitude": 0,
+            "state_name": "Florida",
+            "county_name": "Miami Dade",
+        },
     ]
 
     for city_data in cities_to_add:
@@ -261,14 +358,14 @@ def add_cities(session):
             # Create a new city and associate it with the found state and county
             new_city = City(
                 name=city_data["name"],
-                population=random_population(),
-                area=random_area(),
-                latitude=random_latitude(),
-                longitude=random_longitude(),
+                population=0,
+                area=0,
+                latitude=0,
+                longitude=0,
                 state_name=city_data["state_name"],
                 state=state,
                 county_name=city_data["county_name"],
-                county=county
+                county=county,
             )
             # Add the new city to the session
             session.add(new_city)
@@ -278,7 +375,9 @@ def add_cities(session):
             session.rollback()
             print(colored(f"Error adding city {city_data['name']}: {e}", "red"))
 
+
 # UPDATE
+
 
 def update_state_attribute(state_name, attribute, new_value):
     state_to_update = session.query(State).filter_by(name=state_name).first()
@@ -287,7 +386,6 @@ def update_state_attribute(state_name, attribute, new_value):
         session.commit()
     else:
         print(f"State {state_name} not found!")
-        
 
 
 def update_county_attribute(county_name, attribute, new_value):
@@ -297,7 +395,7 @@ def update_county_attribute(county_name, attribute, new_value):
         session.commit()
     else:
         print(f"County {county_name} not found!")
-        
+
 
 def update_city_attribute(city_name, attribute, new_value):
     cities_to_update = session.query(City).filter_by(name=city_name).all()
@@ -307,9 +405,10 @@ def update_city_attribute(city_name, attribute, new_value):
         session.commit()
     else:
         print(colored(f"City {city_name} not found!", "red"))
-        
-        
+
+
 # DELETE
+
 
 def delete_state_by_name(session, state_name):
     try:
@@ -324,6 +423,7 @@ def delete_state_by_name(session, state_name):
         session.rollback()
         print(colored(f"Error deleting state {state_name}: {e}", "red"))
 
+
 def delete_county_by_name(session, county_name):
     try:
         county = session.query(County).filter_by(name=county_name).first()
@@ -336,6 +436,7 @@ def delete_county_by_name(session, county_name):
     except SQLAlchemyError as e:
         session.rollback()
         print(colored(f"Error deleting county {county_name}: {e}", "red"))
+
 
 def delete_city_by_name(session, city_name):
     try:
@@ -353,6 +454,26 @@ def delete_city_by_name(session, city_name):
         print(colored(f"Error deleting city {city_name}: {e}", "red"))
 
 
+geolocator = Nominatim(user_agent="YourAppName_Geocoder")
 
 
+def update_city_coordinates():
+    # Fetch all cities with latitude and longitude values equal to 0
+    cities_to_update = (
+        session.query(City).filter((City.latitude == 0) | (City.longitude == 0)).all()
+    )
 
+    for city in cities_to_update:
+        try:
+            location = geolocator.geocode(f"{city.name}, {city.state_name}")
+            if location:
+                city.latitude = location.latitude
+                city.longitude = location.longitude
+                print(
+                    f"Updated coordinates for {city.name}: {city.latitude}, {city.longitude}"
+                )
+                session.commit()
+            time.sleep(1)  # Delay for 1 second between requests
+        except geopy.exc.GeocoderServiceError:
+            print(f"Error geocoding {city.name}. Skipping...")
+            continue

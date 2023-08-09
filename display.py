@@ -99,7 +99,7 @@ def display_cities(session):
                 city.name,
                 city.population,
                 city.area,
-                city.longitude,
+                city.latitude,
                 city.longitude,
                 city.state_name,
                 city.state_id,

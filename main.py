@@ -15,8 +15,11 @@ from database_operations import (
     delete_state_by_name,
     delete_county_by_name,
     delete_city_by_name,
+    update_city_coordinates,
+    
 )
 from display import display_states, display_counties, display_cities
+
 
 if __name__ == "__main__":
     # Database setup
@@ -29,16 +32,20 @@ if __name__ == "__main__":
     try:
         # Add data to the database
         add_states(session)
-        add_counties(session)
+        add_counties(session, "Florida")
+        add_counties(session, "New York")
         add_cities(session)
+        
+        update_city_coordinates()
+        
 
-        update_state_attribute("Florida", "population", 9000000)
-        update_county_attribute("Orange", "population", 1650000)
-        update_city_attribute("Orlando", "population", 1350000)
+        # update_state_attribute("Florida", "population", 9000000)
+        # update_county_attribute("Orange", "population", 1650000)
+        # update_city_attribute("Orlando", "population", 1350000)
 
         # delete_state_by_name(session, "Florida")
         # delete_county_by_name(session, "Orange")
-        delete_city_by_name(session, "Orlando")
+        # delete_city_by_name(session, "Orlando")
 
         # Display data using prettytable
         display_states(session)

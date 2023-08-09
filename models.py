@@ -42,5 +42,4 @@ class City(Base):
     state_id = Column(Integer, ForeignKey("States.id"))
     county_name = Column(String(255))
     county_id = Column(Integer, ForeignKey("Counties.id"))
-
     county = relationship("County", back_populates="cities")
