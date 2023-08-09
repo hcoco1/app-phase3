@@ -4,16 +4,22 @@ from database_operations import session
 from models import State, City, County
 import datetime
 from termcolor import colored
+import pyfiglet
 
 
 
+    
 
-def save_user_details():
-    # Ask the user for their name
-    user_name = input("Please enter your name (or type 'exit' to quit): ")
+def get_user_query():
+
+        # Ask the user for their name
+    user_name = input(colored("Please enter your name (or type 'exit' to quit): ", "blue"))
+    ascii_banner = pyfiglet.figlet_format(f"Hello {user_name}!")
+    print(ascii_banner)
 
     if user_name.lower() == "exit":
-        print("Exiting the program. Goodbye!")
+        ascii_banner = pyfiglet.figlet_format("Goodbye!!!")
+        print(ascii_banner)
         return None  # Return None if the user wants to exit
 
     # Get the current date and time
@@ -23,12 +29,9 @@ def save_user_details():
     with open("user_details.txt", "a") as file:
         file.write(f"{user_name}, {current_datetime}\n")
 
-    print("Your name was saved successfully in our local storage!")
-    return user_name  # Return the captured user_name
-
+    print(colored(f"Your name was saved successfully in our local storage!", "red"))
+        
     
-
-def get_user_query():
     while True:
         print(colored("\nChoose a CRUD operation:", "red"))
         print(colored("1. Show the DataBase", "yellow"))
@@ -96,11 +99,14 @@ def get_user_query():
             database_operations.delete_city_by_name(session, city_name.title())
 
         elif choice == "11":
-            print("Goodbye!")
+            ascii_banner = pyfiglet.figlet_format(f"Goodbye {user_name}!!!")
+            print(ascii_banner)
             break
 
         else:
-            print("Invalid choice. Please try again.")
+            ascii_banner = pyfiglet.figlet_format("Invalid choice. Please try again.")
+            print(ascii_banner)
+            
 
 
 

@@ -23,7 +23,7 @@ from database_operations import (
     
     
 )
-from user_interaction import save_user_details, get_user_query
+from user_interaction import get_user_query
 from display import display_states, display_counties, display_cities
 
 
@@ -38,6 +38,7 @@ if __name__ == "__main__":
     session = Session()
 
     try:
+        
         get_user_query()
         # Add data to the database
         # add_states(session)
@@ -59,9 +60,9 @@ if __name__ == "__main__":
         # delete_city_by_name(session, "Orlando")
 
         # Display data using prettytable
-        display_states(session)
-        display_counties(session)
-        display_cities(session)
+        # display_states(session)
+        # display_counties(session)
+        # display_cities(session)
 
     except SQLAlchemyError as e:
         session.rollback()
