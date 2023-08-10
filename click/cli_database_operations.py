@@ -10,7 +10,7 @@ from cli_data_config import cities_to_add, counties_to_add, states_to_add
 
 
 Base = declarative_base()
-engine = create_engine("sqlite:///cli_geodata.db")
+engine = create_engine("sqlite:///geodata.db")
 
 # Drop the tables
 Base.metadata.drop_all(engine)
