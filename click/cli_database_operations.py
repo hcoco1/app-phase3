@@ -1,18 +1,16 @@
 from sqlalchemy import create_engine, update
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
-from termcolor import colored
-from models import State, County, City
-import random
+from cli_models import State, County, City
 from sqlalchemy.orm.exc import NoResultFound
 from geopy.geocoders import Nominatim
 from geopy import exc
 import time
-from data_config import cities_to_add, counties_to_add, states_to_add
+from cli_data_config import cities_to_add, counties_to_add, states_to_add
 
 
 Base = declarative_base()
-engine = create_engine("sqlite:///geodata.db")
+engine = create_engine("sqlite:///cli_geodata.db")
 
 # Drop the tables
 Base.metadata.drop_all(engine)
