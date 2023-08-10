@@ -62,6 +62,7 @@ def get_user_query():
             county_name = input(colored("Enter the name of the county where the city is located: ", "blue")).strip().lower()
             name = input(colored("Enter city name: ", "blue")).strip().lower()
             database_operations.add_single_city(session, name.title(), state_name.title(), county_name.title() )
+            database_operations.update_city_coordinates()
 
         elif choice == "4":
             state_name = input(colored("Enter the name of the state where the county is located: ", "blue")).strip().lower()
