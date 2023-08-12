@@ -1,82 +1,37 @@
 from models import State, County, City
+
 states_to_add = [
-    State(
-        name="Alabama",
-        abbreviation="AL",
-        population=4903185,
-        capital="Montgomery",
-        area=52420,
-    ),
-    State(
-        name="Alaska",
-        abbreviation="AK",
-        population=731545,
-        capital="Juneau",
-        area=665384,
-    ),
-    State(
-        name="Arizona",
-        abbreviation="AZ",
-        population=7278717,
-        capital="Phoenix",
-        area=113990,
-    ),
-    State(
-        name="Arkansas",
-        abbreviation="AR",
-        population=3017804,
-        capital="Little Rock",
-        area=53179,
-    ),
-    State(
-        name="California",
-        abbreviation="CA",
-        population=39538223,
-        capital="Sacramento",
-        area=163695,
-    ),
-    State(
-        name="Colorado",
-        abbreviation="CO",
-        population=5773714,
-        capital="Denver",
-        area=104094,
-    ),
-    State(
-        name="Connecticut",
-        abbreviation="CT",
-        population=3565287,
-        capital="Hartford",
-        area=5543,
-    ),
-    State(
-        name="Delaware",
-        abbreviation="DE",
-        population=989948,
-        capital="Dover",
-        area=2489,
-    ),
-    State(
-        name="Florida",
-        abbreviation="FL",
-        population=21538187,
-        capital="Tallahassee",
-        area=65758,
-    ),
-    State(
-        name="Georgia",
-        abbreviation="GA",
-        population=10617423,
-        capital="Atlanta",
-        area=59425,
-    ),
-    State(
-        name="New York",
-        abbreviation="NY",
-        population=10617423,
-        capital="New York",
-        area=59425,
-    ),
+    State(name="Alabama", abbreviation="AL", population=4903185, capital="Montgomery", area=52420),
+    State(name="Alaska", abbreviation="AK", population=731545, capital="Juneau", area=665384),
+    State(name="Arizona", abbreviation="AZ", population=7278717, capital="Phoenix", area=113990),
+    State(name="Arkansas", abbreviation="AR", population=3017804, capital="Little Rock", area=53179),
+    State(name="California", abbreviation="CA", population=39538223, capital="Sacramento", area=163695),
+    State(name="Colorado", abbreviation="CO", population=5773714, capital="Denver", area=104094),
+    State(name="Connecticut", abbreviation="CT", population=3565287, capital="Hartford", area=5543),
+    State(name="Delaware", abbreviation="DE", population=989948, capital="Dover", area=2489),
+    State(name="Florida", abbreviation="FL", population=21538187, capital="Tallahassee", area=65758),
+    State(name="Georgia", abbreviation="GA", population=10617423, capital="Atlanta", area=59425),
+    State(name="Hawaii", abbreviation="HI", population=1455271, capital="Honolulu", area=10932),
+    State(name="Idaho", abbreviation="ID", population=1787065, capital="Boise", area=83569),
+    State(name="Illinois", abbreviation="IL", population=12671821, capital="Springfield", area=57914),
+    State(name="Indiana", abbreviation="IN", population=6732219, capital="Indianapolis", area=36420),
+    State(name="Iowa", abbreviation="IA", population=3155070, capital="Des Moines", area=56273),
+    State(name="Kansas", abbreviation="KS", population=2913314, capital="Topeka", area=82278),
+    State(name="Kentucky", abbreviation="KY", population=4467673, capital="Frankfort", area=40408),
+    State(name="Louisiana", abbreviation="LA", population=4648794, capital="Baton Rouge", area=52378),
+    State(name="Maine", abbreviation="ME", population=1344212, capital="Augusta", area=35380),
+    State(name="Maryland", abbreviation="MD", population=6045680, capital="Annapolis", area=12406),
+    State(name="Massachusetts", abbreviation="MA", population=6892503, capital="Boston", area=10554),
+    State(name="Michigan", abbreviation="MI", population=9986857, capital="Lansing", area=96714),
+    State(name="Minnesota", abbreviation="MN", population=5639632, capital="Saint Paul", area=86936),
+    State(name="Mississippi", abbreviation="MS", population=2976149, capital="Jackson", area=48432),
+    State(name="Missouri", abbreviation="MO", population=6137428, capital="Jefferson City", area=69707),
+    State(name="Montana", abbreviation="MT", population=1068778, capital="Helena", area=147040),
+    State(name="Nebraska", abbreviation="NE", population=1934408, capital="Lincoln", area=77348),
+    State(name="Nevada", abbreviation="NV", population=3080156, capital="Carson City", area=110572),
+    State(name="New Hampshire", abbreviation="NH", population=1359711, capital="Concord", area=9349),
+    State(name="New Jersey", abbreviation="NJ", population=8882190, capital="Trenton", area=8723),
+    State(name="New York", abbreviation="NY", population=10617423, capital="New York", area=59425)
 ]
 
 counties_to_add = [
@@ -290,8 +245,5 @@ cities_to_add = [
         "longitude": -74.0060,
         "state_name": "New York",
         "county_name": "New York (Manhattan)",
-    }
+    },
 ]
-
-    
-    

@@ -18,12 +18,13 @@ def user_cli():
 @user_cli.command()
 def interactive():
     # Welcome banner
-    banner = pyfiglet.figlet_format("GeoData Tool", font="slant")
+    banner = pyfiglet.figlet_format("Database Tool", font="slant")
     print(colored(banner, "cyan"))
     
         # Ask for user name and save it with the current date
     username = input(colored("Enter your name: ", "green"))
     save_user_details(username)
+    print(colored(f"Your name was saved successfully in our local storage!", "red"))
     
     while True:
         print(colored("\nChoose a CRUD operation:", "red"))
@@ -63,7 +64,7 @@ def interactive():
         elif choice == "10":
             logic.delete_city_logic()
         elif choice == "11":
-            print(colored("\nThank you for using GeoData Tool!", "cyan"))
+            print(colored("\nThank you for using Database Tool!", "cyan"))
             banner = pyfiglet.figlet_format(f"Goodbye {username}", font="slant")
             print(colored(banner, "cyan"))
             break

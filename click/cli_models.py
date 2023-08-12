@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, String, Float, ForeignKey, Index
 from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
-
 class State(Base):
     __tablename__ = "States"
 
@@ -12,7 +11,6 @@ class State(Base):
     population = Column(Integer)
     capital = Column(String(255))
     area = Column(Float)
-
     counties = relationship("County", back_populates="state", cascade="all, delete-orphan")
     cities = relationship("City", backref="state", cascade="all, delete-orphan")
 
@@ -25,7 +23,6 @@ class County(Base):
     area = Column(Float)
     state_name = Column(String(255))
     state_id = Column(Integer, ForeignKey("States.id"))
-
     state = relationship("State", back_populates="counties")
     cities = relationship("City", back_populates="county", cascade="all, delete-orphan")
 

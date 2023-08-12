@@ -4,6 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+alembic = "*"
+sqlalchemy = "*"
+prettytable = "*"
+termcolor = "*"
+pyfiglet = "*"
+click = "*"
 
 [dev-packages]
 

@@ -11,13 +11,10 @@ from cli_data_config import cities_to_add, counties_to_add, states_to_add
 
 Base = declarative_base()
 engine = create_engine("sqlite:///geodata.db")
-
 # Drop the tables
 Base.metadata.drop_all(engine)
-
 # Recreate the tables
 Base.metadata.create_all(engine)
-
 Session = sessionmaker(bind=engine)
 session = Session()
 
@@ -57,8 +54,8 @@ def add_counties(session, state_name):
                         name=county_data["name"],
                         population=county_data["population"],
                         area=county_data["area"],
-                        state_name=county_data["state_name"],
-                        state=state,
+                        state_name=county_data["state_name"], # sets the state's name for the new county.
+                        state=state, # object relationship between the new county and its associated state
                     )
 
                     # Add the new county to the session
