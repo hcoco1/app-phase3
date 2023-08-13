@@ -350,7 +350,7 @@ states_to_add = [
 ]
 
 
-cities = [
+cities_to_add = [
     {
         "name": "Montgomery",
         "population": 198525,
@@ -358,7 +358,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Alabama",
-        "county_name": 1846,
+        "Capital Since": 1846,
     },
     {
         "name": "Juneau",
@@ -367,7 +367,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Alaska",
-        "county_name": 1906,
+        "Capital Since": 1906,
     },
     {
         "name": "Phoenix",
@@ -376,7 +376,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Arizona",
-        "county_name": 1912,
+        "Capital Since": 1912,
     },
     {
         "name": "Little Rock",
@@ -385,7 +385,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Arkansas",
-        "county_name": 1821,
+        "Capital Since": 1821,
     },
     {
         "name": "Sacramento",
@@ -394,7 +394,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "California",
-        "county_name": 1854,
+        "Capital Since": 1854,
     },
     {
         "name": "Denver",
@@ -403,7 +403,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Colorado",
-        "county_name": 1867,
+        "Capital Since": 1867,
     },
     {
         "name": "Hartford",
@@ -412,7 +412,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Connecticut",
-        "county_name": 1875,
+        "Capital Since": 1875,
     },
     {
         "name": "Dover",
@@ -421,7 +421,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Delaware",
-        "county_name": 1777,
+        "Capital Since": 1777,
     },
     {
         "name": "Tallahassee",
@@ -430,7 +430,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Florida",
-        "county_name": 1824,
+        "Capital Since": 1824,
     },
     {
         "name": "Atlanta",
@@ -439,7 +439,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Georgia",
-        "county_name": 1868,
+        "Capital Since": 1868,
     },
     {
         "name": "Honolulu",
@@ -448,7 +448,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Hawaii",
-        "county_name": 1845,
+        "Capital Since": 1845,
     },
     {
         "name": "Boise",
@@ -457,7 +457,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Idaho",
-        "county_name": 1865,
+        "Capital Since": 1865,
     },
     {
         "name": "Springfield",
@@ -466,7 +466,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Illinois",
-        "county_name": 1837,
+        "Capital Since": 1837,
     },
     {
         "name": "Indianapolis",
@@ -475,7 +475,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Indiana",
-        "county_name": 1825,
+        "Capital Since": 1825,
     },
     {
         "name": "Des Moines",
@@ -484,7 +484,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Iowa",
-        "county_name": 1857,
+        "Capital Since": 1857,
     },
     {
         "name": "Topeka",
@@ -493,7 +493,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Kansas",
-        "county_name": 1856,
+        "Capital Since": 1856,
     },
     {
         "name": "Frankfort",
@@ -502,7 +502,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Kentucky",
-        "county_name": 1792,
+        "Capital Since": 1792,
     },
     {
         "name": "Baton Rouge",
@@ -511,7 +511,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Louisiana",
-        "county_name": 1880,
+        "Capital Since": 1880,
     },
     {
         "name": "Augusta",
@@ -520,7 +520,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Maine",
-        "county_name": 1832,
+        "Capital Since": 1832,
     },
     {
         "name": "Annapolis",
@@ -529,7 +529,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Maryland",
-        "county_name": 1694,
+        "Capital Since": 1694,
     },
     {
         "name": "Boston",
@@ -538,7 +538,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Massachusetts",
-        "county_name": 1630,
+        "Capital Since": 1630,
     },
     {
         "name": "Lansing",
@@ -547,7 +547,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Michigan",
-        "county_name": 1847,
+        "Capital Since": 1847,
     },
     {
         "name": "Saint Paul",
@@ -556,7 +556,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Minnesota",
-        "county_name": 1849,
+        "Capital Since": 1849,
     },
     {
         "name": "Jackson",
@@ -565,7 +565,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Mississippi",
-        "county_name": 1821,
+        "Capital Since": 1821,
     },
     {
         "name": "Jefferson City",
@@ -574,7 +574,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Missouri",
-        "county_name": 1826,
+        "Capital Since": 1826,
     },
     {
         "name": "Helena",
@@ -583,7 +583,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Montana",
-        "county_name": 1875,
+        "Capital Since": 1875,
     },
     {
         "name": "Lincoln",
@@ -592,7 +592,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Nebraska",
-        "county_name": 1867,
+        "Capital Since": 1867,
     },
     {
         "name": "Carson City",
@@ -601,7 +601,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Nevada",
-        "county_name": 1861,
+        "Capital Since": 1861,
     },
     {
         "name": "Concord",
@@ -610,7 +610,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "New Hampshire",
-        "county_name": 1808,
+        "Capital Since": 1808,
     },
     {
         "name": "Trenton",
@@ -619,7 +619,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "New Jersey",
-        "county_name": 1784,
+        "Capital Since": 1784,
     },
     {
         "name": "Santa Fe",
@@ -628,7 +628,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "New Mexico",
-        "county_name": 1610,
+        "Capital Since": 1610,
     },
     {
         "name": "Albany",
@@ -637,7 +637,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "New York",
-        "county_name": 1797,
+        "Capital Since": 1797,
     },
     {
         "name": "Raleigh",
@@ -646,7 +646,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "North Carolina",
-        "county_name": 1792,
+        "Capital Since": 1792,
     },
     {
         "name": "Bismarck",
@@ -655,7 +655,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "North Dakota",
-        "county_name": 1883,
+        "Capital Since": 1883,
     },
     {
         "name": "Columbus",
@@ -664,7 +664,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Ohio",
-        "county_name": 1816,
+        "Capital Since": 1816,
     },
     {
         "name": "Oklahoma City",
@@ -673,7 +673,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Oklahoma",
-        "county_name": 1910,
+        "Capital Since": 1910,
     },
     {
         "name": "Salem",
@@ -682,7 +682,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Oregon",
-        "county_name": 1855,
+        "Capital Since": 1855,
     },
     {
         "name": "Harrisburg",
@@ -691,7 +691,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Pennsylvania",
-        "county_name": 1812,
+        "Capital Since": 1812,
     },
     {
         "name": "Providence",
@@ -700,7 +700,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Rhode Island",
-        "county_name": 1900,
+        "Capital Since": 1900,
     },
     {
         "name": "Columbia",
@@ -709,7 +709,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "South Carolina",
-        "county_name": 1786,
+        "Capital Since": 1786,
     },
     {
         "name": "Pierre",
@@ -718,7 +718,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "South Dakota",
-        "county_name": 1889,
+        "Capital Since": 1889,
     },
     {
         "name": "Nashville",
@@ -727,7 +727,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Tennessee",
-        "county_name": 1826,
+        "Capital Since": 1826,
     },
     {
         "name": "Austin",
@@ -736,7 +736,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Texas",
-        "county_name": 1839,
+        "Capital Since": 1839,
     },
     {
         "name": "Salt Lake City",
@@ -745,7 +745,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Utah",
-        "county_name": 1858,
+        "Capital Since": 1858,
     },
     {
         "name": "Montpelier",
@@ -754,7 +754,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Vermont",
-        "county_name": 1805,
+        "Capital Since": 1805,
     },
     {
         "name": "Richmond",
@@ -763,7 +763,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Virginia",
-        "county_name": 1780,
+        "Capital Since": 1780,
     },
     {
         "name": "Olympia",
@@ -772,7 +772,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Washington",
-        "county_name": 1853,
+        "Capital Since": 1853,
     },
     {
         "name": "Charleston",
@@ -781,7 +781,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "West Virginia",
-        "county_name": 1885,
+        "Capital Since": 1885,
     },
     {
         "name": "Madison",
@@ -790,7 +790,7 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Wisconsin",
-        "county_name": 1838,
+        "Capital Since": 1838,
     },
     {
         "name": "Cheyenne",
@@ -799,68 +799,11 @@ cities = [
         "latitude": 0,
         "longitude": 0,
         "state_name": "Wyoming",
-        "county_name": 1869,
-    }
-]
-
-cities_to_add = [
-    {
-        "name": "Orlando",
-        "population": 1393452,  # Population from Orange county
-        "area": 903,  # Area from Orange county
-        "latitude": 28.5383,
-        "longitude": -81.3792,
-        "state_name": "Florida",
-        "county_name": "Orange",
-    },
-    {
-        "name": "Sanford",  # Changed city name for Seminole county
-        "population": 471826,  # Population from Seminole county
-        "area": 309,  # Area from Seminole county
-        "latitude": 28.8025,
-        "longitude": -81.2691,
-        "state_name": "Florida",
-        "county_name": "Seminole",
-    },
-    {
-        "name": "Tavares",  # Changed city name for Lake County
-        "population": 367118,  # Population from Lake County
-        "area": 953,  # Area from Lake County
-        "latitude": 28.8042,
-        "longitude": -81.7256,
-        "state_name": "Florida",
-        "county_name": "Lake County",
-    },
-    {
-        "name": "Kissimmee",  # Changed city name for Osceola county
-        "population": 375751,  # Population from Osceola county
-        "area": 1325,  # Area from Osceola county
-        "latitude": 28.2916,
-        "longitude": -81.4076,
-        "state_name": "Florida",
-        "county_name": "Osceola",
-    },
-    {
-        "name": "Miami",
-        "population": 2716940,  # Population from Miami Dade county
-        "area": 1898,  # Area from Miami Dade county
-        "latitude": 25.7617,
-        "longitude": -80.1918,
-        "state_name": "Florida",
-        "county_name": "Miami Dade",
-    },
-    {
-        "name": "New York City",  # Sample city for New York state
-        "population": 1628706,  # Population from New York (Manhattan) county
-        "area": 22.7,  # Area from New York (Manhattan) county
-        "latitude": 40.7128,
-        "longitude": -74.0060,
-        "state_name": "New York",
-        "county_name": "New York (Manhattan)",
+        "Capital Since": 1869,
     },
 ]
 
-facilities_to_add = [
+facilities = [
     {
         "name": "Public School",
         "description": "An educational institution for children aged 5-18",
@@ -914,7 +857,7 @@ facilities_to_add = [
 ]
 
 
-city_facilities_to_add = [
+city_facilities_data = [
     
     {"city_name": "Montgomery", "facility_name": "Public School"},
     {"city_name": "Montgomery", "facility_name": "Public Library"},
@@ -1009,162 +952,4 @@ city_facilities_to_add = [
     {"city_name": "Madison", "facility_name": "Public Swimming Pool"},
     {"city_name": "Cheyenne", "facility_name": "Public School"},
     {"city_name": "Cheyenne", "facility_name": "Public Library"},
-]
-
-
-counties_to_add = [
-    {
-        "name": "Orange",
-        "population": 1393452,  # As of 2019
-        "area": 903,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Orlando",
-    },
-    {
-        "name": "Seminole",
-        "population": 471826,  # As of 2019
-        "area": 309,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Orlando",
-    },
-    {
-        "name": "Lake County",
-        "population": 367118,  # As of 2019
-        "area": 953,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Orlando",
-    },
-    {
-        "name": "Osceola",
-        "population": 375751,  # As of 2019
-        "area": 1325,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Orlando",
-    },
-    {
-        "name": "Miami Dade",
-        "population": 2716940,  # As of 2019
-        "area": 1898,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Miami",
-    },
-    {
-        "name": "Broward",
-        "population": 1952778,  # As of 2019
-        "area": 1209,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Fort Lauderdale",
-    },
-    {
-        "name": "Palm Beach",
-        "population": 1496770,  # As of 2019
-        "area": 1969,  # Square miles
-        "state_name": "Florida",
-        "city_name": "West Palm Beach",
-    },
-    {
-        "name": "Hillsborough",
-        "population": 1471968,  # As of 2019
-        "area": 1020,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Tampa",
-    },
-    {
-        "name": "Pinellas",
-        "population": 974996,  # As of 2019
-        "area": 274,  # Square miles
-        "state_name": "Florida",
-        "city_name": "St. Petersburg",
-    },
-    {
-        "name": "Duval",
-        "population": 957755,  # As of 2019
-        "area": 762,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Jacksonville",
-    },
-    {
-        "name": "Lee",
-        "population": 770577,  # As of 2019
-        "area": 785,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Fort Myers",
-    },
-    {
-        "name": "Polk",
-        "population": 724777,  # As of 2019
-        "area": 1798,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Lakeland",
-    },
-    {
-        "name": "Kings (Brooklyn)",
-        "population": 2559903,  # As of 2019
-        "area": 69,  # Square miles
-        "state_name": "New York",
-        "city_name": "Brooklyn",
-    },
-    {
-        "name": "Queens",
-        "population": 2253858,  # As of 2019
-        "area": 108,  # Square miles
-        "state_name": "New York",
-        "city_name": "Queens",
-    },
-    {
-        "name": "New York (Manhattan)",
-        "population": 1628706,  # As of 2019
-        "area": 22.7,  # Square miles
-        "state_name": "New York",
-        "city_name": "Manhattan",
-    },
-    {
-        "name": "Suffolk",
-        "population": 1476601,  # As of 2019
-        "area": 912,  # Square miles
-        "state_name": "New York",
-        "city_name": "Riverhead",
-    },
-    {
-        "name": "Bronx",
-        "population": 1472654,  # As of 2019
-        "area": 42,  # Square miles
-        "state_name": "New York",
-        "city_name": "The Bronx",
-    },
-    {
-        "name": "Nassau",
-        "population": 1356924,  # As of 2019
-        "area": 285,  # Square miles
-        "state_name": "New York",
-        "city_name": "Mineola",
-    },
-    {
-        "name": "Westchester",
-        "population": 967506,  # As of 2019
-        "area": 432,  # Square miles
-        "state_name": "New York",
-        "city_name": "White Plains",
-    },
-    {
-        "name": "Erie",
-        "population": 918702,  # As of 2019
-        "area": 1044,  # Square miles
-        "state_name": "New York",
-        "city_name": "Buffalo",
-    },
-    {
-        "name": "Monroe",
-        "population": 741770,  # As of 2019
-        "area": 657,  # Square miles
-        "state_name": "New York",
-        "city_name": "Rochester",
-    },
-    {
-        "name": "Richmond (Staten Island)",
-        "population": 476143,  # As of 2019
-        "area": 57,  # Square miles
-        "state_name": "New York",
-        "city_name": "Staten Island",
-    }
 ]

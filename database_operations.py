@@ -8,7 +8,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from geopy.geocoders import Nominatim
 from geopy import exc
 import time
-from data_config import cities_to_add, counties_to_add, states_to_add
+from data_config import cities_to_add, counties_to_add, states_to_add, facilities_to_add 
 
 
 Base = declarative_base()
@@ -28,6 +28,7 @@ session = Session()
 def add_states(session):
     session.add_all(states_to_add)
     session.commit()
+    
     
 def add_single_state(session, name, population=0, area=0):
     existing_state = session.query(State).filter_by(name=name).first()
