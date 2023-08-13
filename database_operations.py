@@ -8,7 +8,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from geopy.geocoders import Nominatim
 from geopy import exc
 import time
-from data_config import cities_to_add, counties_to_add, states_to_add, facilities_to_add 
+from data_config import cities_to_add, counties_to_add, states_to_add, facilities_to_add
 
 
 Base = declarative_base()
@@ -27,6 +27,18 @@ session = Session()
 # Add all provided states using instances of the State class
 def add_states(session):
     session.add_all(states_to_add)
+    session.commit()
+    
+def add_counties(session):
+    session.add_all(counties_to_add)
+    session.commit()
+    
+def add_cities(session):
+    session.add_all(cities_to_add)
+    session.commit()
+    
+def add_facilities(session):
+    session.add_all(facilities_to_add)
     session.commit()
     
     
@@ -48,7 +60,7 @@ def add_single_state(session, name, population=0, area=0):
 
 
 
-def add_counties(session, state_name):
+def add_counties1(session, state_name):
     state = session.query(State).filter_by(name=state_name).first()
 
     if state:
@@ -101,7 +113,7 @@ def add_single_county(session, name, state_name, population=0, area=0):
 # 
 
 
-def add_cities(session):
+def add_cities1(session):
     # Loop through cities data
     for city_data in cities_to_add:
         # Query for the state based on the state_name in city_data
@@ -253,7 +265,7 @@ def update_city_coordinates():
 
     for city in cities_to_update:
         try:
-            location = geolocator.geocode(f"{city.name}, {city.state_name}")
+            location = geolocator.geocode(f"{city.name}")
             if location:
                 city.latitude = location.latitude
                 city.longitude = location.longitude

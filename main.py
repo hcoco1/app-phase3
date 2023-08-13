@@ -19,7 +19,8 @@ from database_operations import (
     session,
     add_single_state,
     add_single_county,
-    add_single_city
+    add_single_city,
+    add_facilities
     
     
 )
@@ -43,10 +44,11 @@ if __name__ == "__main__":
         # Add data to the database
         #add_states(session)
         # add_single_state(session, "Alabama", population=4903185, area=52420.0)
-        add_counties(session, "Florida")
-        add_counties(session, "New York")
+        # add_counties(session)
+        add_facilities(session)
+       
         # add_single_county(session, "Georgia County", "Georgia", population=10, area=110)
-        add_cities(session)
+        # add_cities(session)
         # add_single_city(session, "Atlanta", "Georgia", "Georgia County", population=210, area=2220, latitude=0, longitude=0)
 
         # update_city_coordinates()

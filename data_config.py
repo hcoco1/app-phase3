@@ -1,4 +1,4 @@
-from models import State, County, City
+from models import State, County, City, Facilities
 
 states_to_add = [
     State(
@@ -800,122 +800,150 @@ cities = [
         "longitude": 0,
         "state_name": "Wyoming",
         "county_name": 1869,
-    }
+    },
 ]
 
 cities_to_add = [
-    {
-        "name": "Orlando",
-        "population": 1393452,  # Population from Orange county
-        "area": 903,  # Area from Orange county
-        "latitude": 28.5383,
-        "longitude": -81.3792,
-        "state_name": "Florida",
-        "county_name": "Orange",
-    },
-    {
-        "name": "Sanford",  # Changed city name for Seminole county
-        "population": 471826,  # Population from Seminole county
-        "area": 309,  # Area from Seminole county
-        "latitude": 28.8025,
-        "longitude": -81.2691,
-        "state_name": "Florida",
-        "county_name": "Seminole",
-    },
-    {
-        "name": "Tavares",  # Changed city name for Lake County
-        "population": 367118,  # Population from Lake County
-        "area": 953,  # Area from Lake County
-        "latitude": 28.8042,
-        "longitude": -81.7256,
-        "state_name": "Florida",
-        "county_name": "Lake County",
-    },
-    {
-        "name": "Kissimmee",  # Changed city name for Osceola county
-        "population": 375751,  # Population from Osceola county
-        "area": 1325,  # Area from Osceola county
-        "latitude": 28.2916,
-        "longitude": -81.4076,
-        "state_name": "Florida",
-        "county_name": "Osceola",
-    },
-    {
-        "name": "Miami",
-        "population": 2716940,  # Population from Miami Dade county
-        "area": 1898,  # Area from Miami Dade county
-        "latitude": 25.7617,
-        "longitude": -80.1918,
-        "state_name": "Florida",
-        "county_name": "Miami Dade",
-    },
-    {
-        "name": "New York City",  # Sample city for New York state
-        "population": 1628706,  # Population from New York (Manhattan) county
-        "area": 22.7,  # Area from New York (Manhattan) county
-        "latitude": 40.7128,
-        "longitude": -74.0060,
-        "state_name": "New York",
-        "county_name": "New York (Manhattan)",
-    },
+    City(
+        name="Montgomery",
+        population=198525,
+        area=159.8,
+        latitude=0,
+        longitude=0,
+      
+        county_name="Montgomery"
+    ),
+    City(
+        name="Juneau",
+        population=32113,
+        area=2716.7,
+        latitude=0,
+        longitude=0,
+     
+        county_name="Juneau"
+    ),
+    City(
+        name="Phoenix",
+        population=1680992,
+        area=517.6,
+        latitude=0,
+        longitude=0,
+     
+        county_name="Maricopa"
+    ),
+    City(
+        name="Little Rock",
+        population=197312,
+        area=116.2,
+        latitude=0,
+        longitude=0,
+   
+        county_name="Pulaski"
+    ),
+    City(
+        name="Sacramento",
+        population=513624,
+        area=97.9,
+        latitude=0,
+        longitude=0,
+    
+        county_name="Sacramento"
+    ),
+    City(
+        name="Denver",
+        population=727211,
+        area=153.3,
+        latitude=0,
+        longitude=0,
+      
+        county_name="Denver"
+    ),
+    City(
+        name="Hartford",
+        population=122105,
+        area=17.3,
+        latitude=0,
+        longitude=0,
+      
+        county_name="Hartford"
+    ),
+    City(
+        name="Dover",
+        population=38079,
+        area=22.4,
+        latitude=0,
+        longitude=0,
+    
+        county_name="Kent"
+    ),
+    City(
+        name="Tallahassee",
+        population=194500,
+        area=95.7,
+        latitude=0,
+        longitude=0,
+     
+        county_name="Leon"
+    )
 ]
 
+
 facilities_to_add = [
-    {
-        "name": "Public School",
-        "description": "An educational institution for children aged 5-18",
-        "facility_type": "Education",
-    },
-    {
-        "name": "Public Library",
-        "description": "A facility where people can borrow books and access digital resources",
-        "facility_type": "Education",
-    },
-    {
-        "name": "Public Hospital",
-        "description": "A healthcare institution providing treatment with specialized medical and nursing staff",
-        "facility_type": "Healthcare",
-    },
-    {
-        "name": "Community Park",
-        "description": "A green area reserved for recreational activities, often equipped with playgrounds, benches, and sports fields",
-        "facility_type": "Recreation",
-    },
-    {
-        "name": "Police Station",
-        "description": "A building where local police officers work and where people can report crimes",
-        "facility_type": "Safety and Security",
-    },
-    {
-        "name": "Fire Station",
-        "description": "A building housing emergency equipment and personnel for firefighting",
-        "facility_type": "Safety and Security",
-    },
-    {
-        "name": "Public Gym",
-        "description": "A facility equipped with exercise machines and weights for physical fitness",
-        "facility_type": "Recreation",
-    },
-    {
-        "name": "Municipal Office",
-        "description": "An office where local government administrative activities take place",
-        "facility_type": "Government",
-    },
-    {
-        "name": "Public Swimming Pool",
-        "description": "A facility where individuals can swim, often overseen by lifeguards",
-        "facility_type": "Recreation",
-    },
-    {
-        "name": "Post Office",
-        "description": "A facility where mail is processed and sent, and where people can buy postage stamps, send packages, etc.",
-        "facility_type": "Communication",
-    },
+    Facilities(
+        name="Public School",
+        description="An educational institution for children aged 5-18",
+        facility_type="Education"
+    ),
+    Facilities(
+        name="Public Library",
+        description="A facility where people can borrow books and access digital resources",
+        facility_type="Education"
+    ),
+    Facilities(
+        name="Public Hospital",
+        description="A healthcare institution providing treatment with specialized medical and nursing staff",
+        facility_type="Healthcare"
+    ),
+    Facilities(
+        name="Community Park",
+        description="A green area reserved for recreational activities, often equipped with playgrounds, benches, and sports fields",
+        facility_type="Recreation"
+    ),
+    Facilities(
+        name="Police Station",
+        description="A building where local police officers work and where people can report crimes",
+        facility_type="Safety and Security"
+    ),
+    Facilities(
+        name="Fire Station",
+        description="A building housing emergency equipment and personnel for firefighting",
+        facility_type="Safety and Security"
+    ),
+    Facilities(
+        name="Public Gym",
+        description="A facility equipped with exercise machines and weights for physical fitness",
+        facility_type="Recreation"
+    ),
+    Facilities(
+        name="Municipal Office",
+        description="An office where local government administrative activities take place",
+        facility_type="Government"
+    ),
+    Facilities(
+        name="Public Swimming Pool",
+        description="A facility where individuals can swim, often overseen by lifeguards",
+        facility_type="Recreation"
+    ),
+    Facilities(
+        name="Post Office",
+        description="A facility where mail is processed and sent, and where people can buy postage stamps, send packages, etc.",
+        facility_type="Communication"
+    )
 ]
+
 
 
 city_facilities_to_add = [
-    
     {"city_name": "Montgomery", "facility_name": "Public School"},
     {"city_name": "Montgomery", "facility_name": "Public Library"},
     {"city_name": "Montgomery", "facility_name": "Community Park"},
@@ -1013,158 +1041,26 @@ city_facilities_to_add = [
 
 
 counties_to_add = [
-    {
-        "name": "Orange",
-        "population": 1393452,  # As of 2019
-        "area": 903,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Orlando",
-    },
-    {
-        "name": "Seminole",
-        "population": 471826,  # As of 2019
-        "area": 309,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Orlando",
-    },
-    {
-        "name": "Lake County",
-        "population": 367118,  # As of 2019
-        "area": 953,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Orlando",
-    },
-    {
-        "name": "Osceola",
-        "population": 375751,  # As of 2019
-        "area": 1325,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Orlando",
-    },
-    {
-        "name": "Miami Dade",
-        "population": 2716940,  # As of 2019
-        "area": 1898,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Miami",
-    },
-    {
-        "name": "Broward",
-        "population": 1952778,  # As of 2019
-        "area": 1209,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Fort Lauderdale",
-    },
-    {
-        "name": "Palm Beach",
-        "population": 1496770,  # As of 2019
-        "area": 1969,  # Square miles
-        "state_name": "Florida",
-        "city_name": "West Palm Beach",
-    },
-    {
-        "name": "Hillsborough",
-        "population": 1471968,  # As of 2019
-        "area": 1020,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Tampa",
-    },
-    {
-        "name": "Pinellas",
-        "population": 974996,  # As of 2019
-        "area": 274,  # Square miles
-        "state_name": "Florida",
-        "city_name": "St. Petersburg",
-    },
-    {
-        "name": "Duval",
-        "population": 957755,  # As of 2019
-        "area": 762,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Jacksonville",
-    },
-    {
-        "name": "Lee",
-        "population": 770577,  # As of 2019
-        "area": 785,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Fort Myers",
-    },
-    {
-        "name": "Polk",
-        "population": 724777,  # As of 2019
-        "area": 1798,  # Square miles
-        "state_name": "Florida",
-        "city_name": "Lakeland",
-    },
-    {
-        "name": "Kings (Brooklyn)",
-        "population": 2559903,  # As of 2019
-        "area": 69,  # Square miles
-        "state_name": "New York",
-        "city_name": "Brooklyn",
-    },
-    {
-        "name": "Queens",
-        "population": 2253858,  # As of 2019
-        "area": 108,  # Square miles
-        "state_name": "New York",
-        "city_name": "Queens",
-    },
-    {
-        "name": "New York (Manhattan)",
-        "population": 1628706,  # As of 2019
-        "area": 22.7,  # Square miles
-        "state_name": "New York",
-        "city_name": "Manhattan",
-    },
-    {
-        "name": "Suffolk",
-        "population": 1476601,  # As of 2019
-        "area": 912,  # Square miles
-        "state_name": "New York",
-        "city_name": "Riverhead",
-    },
-    {
-        "name": "Bronx",
-        "population": 1472654,  # As of 2019
-        "area": 42,  # Square miles
-        "state_name": "New York",
-        "city_name": "The Bronx",
-    },
-    {
-        "name": "Nassau",
-        "population": 1356924,  # As of 2019
-        "area": 285,  # Square miles
-        "state_name": "New York",
-        "city_name": "Mineola",
-    },
-    {
-        "name": "Westchester",
-        "population": 967506,  # As of 2019
-        "area": 432,  # Square miles
-        "state_name": "New York",
-        "city_name": "White Plains",
-    },
-    {
-        "name": "Erie",
-        "population": 918702,  # As of 2019
-        "area": 1044,  # Square miles
-        "state_name": "New York",
-        "city_name": "Buffalo",
-    },
-    {
-        "name": "Monroe",
-        "population": 741770,  # As of 2019
-        "area": 657,  # Square miles
-        "state_name": "New York",
-        "city_name": "Rochester",
-    },
-    {
-        "name": "Richmond (Staten Island)",
-        "population": 476143,  # As of 2019
-        "area": 57,  # Square miles
-        "state_name": "New York",
-        "city_name": "Staten Island",
-    }
+    County(name="Orange", population=1393452, area=903),
+    County(name="Seminole", population=471826, area=309),
+    County(name="Lake County", population=367118, area=953),
+    County(name="Osceola", population=375751, area=1325),
+    County(name="Miami Dade", population=2716940, area=1898),
+    County(name="Broward", population=1952778, area=1209),
+    County(name="Palm Beach", population=1496770, area=1969),
+    County(name="Hillsborough", population=1471968, area=1020),
+    County(name="Pinellas", population=974996, area=274),
+    County(name="Duval", population=957755, area=762),
+    County(name="Lee", population=770577, area=785),
+    County(name="Polk", population=724777, area=1798),
+    County(name="Kings (Brooklyn)", population=2559903, area=69),
+    County(name="Queens", population=2253858, area=108),
+    County(name="New York (Manhattan)", population=1628706, area=22.7),
+    County(name="Suffolk", population=1476601, area=912),
+    County(name="Bronx", population=1472654, area=42),
+    County(name="Nassau", population=1356924, area=285),
+    County(name="Westchester", population=967506, area=432),
+    County(name="Erie", population=918702, area=1044),
+    County(name="Monroe", population=741770, area=657),
+    County(name="Richmond (Staten Island)", population=476143, area=57),
 ]
